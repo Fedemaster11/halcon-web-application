@@ -48,6 +48,98 @@ This repository will contain:
 - Entity-Relationship Diagram
 - Project documentation
 
+
+
+
+# Work Methodology
+
+## Selected Methodology: Scrum
+
+The selected work methodology for the Halcon web application is Scrum.
+
+Scrum was chosen because the project can be divided into different parts and developed step by step. The system includes several functions such as user management, order creation, warehouse processes, purchasing, route management, delivery evidence, order tracking, and administrative functions.
+
+Using Scrum will allow the team to organize the requirements in a Product Backlog and work on them in short development periods called Sprints. At the end of each Sprint, the completed work can be reviewed before continuing with the next part of the project.
+
+This methodology is useful for the Halcon project because it helps the team prioritize tasks, divide responsibilities, monitor progress, and make changes if necessary during the development process.
+
+## Application of Scrum
+
+The project will be developed by a team of two members. Both team members will participate in the planning, development, testing, and documentation of the application.
+
+The requirements described in the Halcon case will be organized in a Product Backlog. The team will select the most important tasks and complete them progressively through different Sprints.
+
+At the end of each Sprint, the team will review the completed functionality and verify that it works correctly before continuing with the next stage.
+
+## Product Backlog
+
+The initial Product Backlog includes the following tasks:
+
+1. Create employee authentication.
+2. Create the default administrative user.
+3. Create employee roles.
+4. Manage customers.
+5. Create new orders.
+6. Assign the default status "Ordered" to new orders.
+7. Allow Warehouse users to process orders.
+8. Allow Purchasing users to manage missing materials.
+9. Allow Route users to manage deliveries.
+10. Upload loading evidence.
+11. Upload delivery evidence.
+12. Allow customers to check their order status.
+13. Search orders by invoice number, customer number, date, or status.
+14. Edit orders.
+15. Logically delete orders.
+16. Restore deleted orders.
+
+## Sprint Planning
+
+### Sprint 1 - Project Foundation
+
+The first Sprint will focus on the basic structure of the application.
+
+Tasks:
+
+- Create the Laravel project.
+- Configure the database.
+- Create user authentication.
+- Create the administrative user.
+- Create employee roles.
+- Create customer management.
+- Create the basic order structure.
+
+### Sprint 2 - Order Management
+
+The second Sprint will focus on the main order workflow.
+
+Tasks:
+
+- Allow Sales users to create orders.
+- Assign invoice and customer numbers.
+- Implement the order statuses:
+  - Ordered
+  - In process
+  - In route
+  - Delivered
+- Implement the Warehouse process.
+- Implement the Purchasing process.
+- Create the order list.
+- Add order search and filtering.
+
+### Sprint 3 - Delivery and Final Functions
+
+The third Sprint will focus on delivery and final administrative functions.
+
+Tasks:
+
+- Implement Route department functions.
+- Upload a photo of the loaded vehicle.
+- Upload delivery evidence.
+- Change the order status to Delivered.
+- Implement logical deletion of orders.
+- Create the deleted orders screen.
+- Allow deleted orders to be restored.
+- Perform final testing and documentation.
 ## Authors
 
 Federico David Macias Orozco
