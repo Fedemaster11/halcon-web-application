@@ -1,0 +1,83 @@
+@startuml
+title Halcon - Entity Relationship Diagram
+
+entity roles {
+    * id : INT <<PK>>
+    --
+    name : VARCHAR(50)
+}
+
+entity users {
+    * id : INT <<PK>>
+    --
+    role_id : INT <<FK>>
+    name : VARCHAR(100)
+    email : VARCHAR(150)
+    password : VARCHAR(255)
+}
+
+entity customers {
+    * id : INT <<PK>>
+    --
+    customer_number : VARCHAR(50)
+    name : VARCHAR(150)
+    fiscal_data : TEXT
+}
+
+entity orders {
+    * id : INT <<PK>>
+    --
+    customer_id : INT <<FK>>
+    created_by : INT <<FK>>
+    invoice_number : VARCHAR(50)
+    order_date : DATETIME
+    delivery_address : VARCHAR(255)
+    notes : TEXT
+    status : VARCHAR(30)
+    deleted_at : DATETIME
+}
+
+entity materials {
+    * id : INT <<PK>>
+    --
+    name : VARCHAR(150)
+    stock : INT
+}
+
+entity order_items {
+    * id : INT <<PK>>
+    --
+    order_id : INT <<FK>>
+    material_id : INT <<FK>>
+    quantity : INT
+}
+
+entity purchase_requests {
+    * id : INT <<PK>>
+    --
+    material_id : INT <<FK>>
+    user_id : INT <<FK>>
+    quantity : INT
+    status : VARCHAR(30)
+}
+
+entity delivery_evidence {
+    * id : INT <<PK>>
+    --
+    order_id : INT <<FK>>
+    user_id : INT <<FK>>
+    type : VARCHAR(30)
+    photo_path : VARCHAR(255)
+    uploaded_at : DATETIME
+}
+
+roles ||--o{ users : has
+customers ||--o{ orders : places
+users ||--o{ orders : creates
+orders ||--o{ order_items : contains
+materials ||--o{ order_items : includes
+materials ||--o{ purchase_requests : requires
+users ||--o{ purchase_requests : manages
+orders ||--o{ delivery_evidence : has
+users ||--o{ delivery_evidence : uploads
+@enduml

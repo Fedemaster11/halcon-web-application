@@ -1,0 +1,53 @@
+@startuml
+title Halcon - Use Case Diagram
+left to right direction
+
+actor Customer
+actor Administrator
+actor Sales
+actor Warehouse
+actor Purchasing
+actor Route
+
+rectangle "Halcon Web Application" {
+    usecase "Check Order Status" as UC1
+    usecase "Login" as UC2
+    usecase "Manage Users" as UC3
+    usecase "Assign Roles" as UC4
+    usecase "Create Order" as UC5
+    usecase "Edit Order" as UC6
+    usecase "Search Orders" as UC7
+    usecase "Delete Order" as UC8
+    usecase "Restore Order" as UC9
+    usecase "Process Order" as UC10
+    usecase "Check Materials" as UC11
+    usecase "Purchase Missing Materials" as UC12
+    usecase "Upload Loading Photo" as UC13
+    usecase "Upload Delivery Photo" as UC14
+    usecase "Mark Order as Delivered" as UC15
+}
+
+Customer --> UC1
+Administrator --> UC2
+Administrator --> UC3
+Administrator --> UC4
+Administrator --> UC7
+Administrator --> UC9
+Sales --> UC2
+Sales --> UC5
+Sales --> UC6
+Sales --> UC7
+Sales --> UC8
+Warehouse --> UC2
+Warehouse --> UC7
+Warehouse --> UC10
+Warehouse --> UC11
+Purchasing --> UC2
+Purchasing --> UC7
+Purchasing --> UC12
+Route --> UC2
+Route --> UC7
+Route --> UC13
+Route --> UC14
+Route --> UC15
+@enduml

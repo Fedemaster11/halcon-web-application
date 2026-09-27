@@ -1,0 +1,40 @@
+@startuml
+title Halcon - Order Process
+
+|Customer|
+start
+:Place order;
+
+|Sales|
+:Create order;
+:Set status to "Ordered";
+
+|Warehouse|
+:Review order;
+:Set status to "In process";
+:Check materials;
+
+if (Materials available?) then (Yes)
+    :Prepare order;
+else (No)
+    |Purchasing|
+    :Buy missing materials;
+
+    |Warehouse|
+    :Receive materials;
+    :Prepare order;
+endif
+
+:Set status to "In route";
+
+|Route|
+:Upload loading photo;
+:Deliver order;
+:Upload delivery photo;
+:Set status to "Delivered";
+
+|Customer|
+:Check order status;
+
+stop
+@enduml

@@ -1,0 +1,75 @@
+@startuml
+title Halcon - Class Diagram
+
+class Role {
+  +id: int
+  +name: string
+}
+
+class User {
+  +id: int
+  +name: string
+  +email: string
+  +password: string
+}
+
+class Customer {
+  +id: int
+  +customerNumber: string
+  +name: string
+  +fiscalData: string
+}
+
+class Order {
+  +id: int
+  +invoiceNumber: string
+  +orderDate: datetime
+  +deliveryAddress: string
+  +notes: string
+  +status: OrderStatus
+  +deletedAt: datetime
+}
+
+class OrderItem {
+  +id: int
+  +quantity: int
+}
+
+class Material {
+  +id: int
+  +name: string
+  +stock: int
+}
+
+class PurchaseRequest {
+  +id: int
+  +quantity: int
+  +status: string
+}
+
+class DeliveryEvidence {
+  +id: int
+  +type: string
+  +photoPath: string
+  +uploadedAt: datetime
+}
+
+enum OrderStatus {
+  Ordered
+  InProcess
+  InRoute
+  Delivered
+}
+
+Role "1" -- "*" User : has
+Customer "1" -- "*" Order : places
+User "1" -- "*" Order : creates
+Order "1" -- "*" OrderItem : contains
+Material "1" -- "*" OrderItem : belongs to
+Material "1" -- "*" PurchaseRequest : requested for
+User "1" -- "*" PurchaseRequest : manages
+Order "1" -- "*" DeliveryEvidence : has
+User "1" -- "*" DeliveryEvidence : uploads
+Order --> OrderStatus
+
+@enduml
