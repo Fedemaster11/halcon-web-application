@@ -1,5 +1,4 @@
-# halcon-web-application
-Web application for managing customer orders, internal workflows, delivery tracking, and administrative processes for Halcon.
+
 # Halcon Web Application
 
 Web application for managing customer orders, internal workflows, delivery tracking, and administrative processes for Halcon.
